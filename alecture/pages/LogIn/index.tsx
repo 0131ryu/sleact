@@ -38,9 +38,9 @@ const LogIn = () => {
     return <div>로딩중...</div>;
   }
 
-  if (data) {
-    return <Redirect to="/workspace/sleact/channel/일반" />;
-  }
+  // if (data) {
+  //   return <Redirect to="/workspace/sleact/channel/일반" />;
+  // }
 
   // console.log(error, userData);
   // if (!error && userData) {

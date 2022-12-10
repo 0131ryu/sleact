@@ -8,12 +8,13 @@ const Workspace = loadable(() => import('@layouts/Workspace'));
 
 const App = () => {
   return (
-    <Switch>
-      <Redirect exact path="/" to="/login" />
-      <Route path="/login" component={LogIn} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/workspace/:workspace" component={Workspace} />
-    </Switch>
+    <div>핫리로딩</div>
+    // <Switch>
+    //   <Redirect exact path="/" to="/login" />
+    //   <Route path="/login" component={LogIn} />
+    //   <Route path="/signup" component={SignUp} />
+    //   <Route path="/workspace/:workspace" component={Workspace} />
+    // </Switch>
   );
 };
 
