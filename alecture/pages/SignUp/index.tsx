@@ -14,53 +14,31 @@ const SignUp = () => {
   const [signUpSuccess, setSignUpSuccess] = useState(false);
 
   const onChangePassword = useCallback(
-    // (e) => {
-    //   setPassword(e.target.value);
-    //   setMismatchError(e.target.value !== passwordCheck);
-    // },
-    // [passwordCheck],
-    () => {},
-    [],
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setPassword(e.target.value);
+      setMismatchError(e.target.value === passwordCheck);
+    },
+    [passwordCheck],
   );
 
   const onChangePasswordCheck = useCallback(
-    // (e) => {
-    //   setPasswordCheck(e.target.value);
-    //   setMismatchError(e.target.value !== password);
-    // },
-    // [password],
-    () => {},
-    [],
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setPasswordCheck(e.target.value);
+      setMismatchError(e.target.value !== password);
+    },
+    [password],
   );
 
   const onSubmit = useCallback(
-    // (e) => {
-    //   e.preventDefault();
-    //   if (!mismatchError && nickname) {
-    //     console.log('서버로 회원가입하기');
-    //     setSignUpError('');
-    //     setSignUpSuccess(false);
-    //     axios
-    //       .post('/api/users', {
-    //         email,
-    //         nickname,
-    //         password,
-    //       })
-    //       .then((response) => {
-    //         console.log(response);
-    //         setSignUpSuccess(true);
-    //       })
-    //       .catch((error) => {
-    //         console.log(error.response);
-    //         setSignUpError(error.response.data);
-    //       })
-    //       .finally(() => {});
-    //   }
-    // },
-    // [email, nickname, password, passwordCheck, mismatchError],
-    () => {},
-    [],
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if (!mismatchError) {
+        console.log('서버로 회원가입');
+      }
+    },
+    [email, nickname, password, passwordCheck, mismatchError],
   );
+
   return (
     <div id="container">
       <Header>Sleact</Header>
