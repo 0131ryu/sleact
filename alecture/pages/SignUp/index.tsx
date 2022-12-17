@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Form, Label, Input, LinkContainer, Header, Button, Error, Success } from './styles';
 import { Link } from 'react-router-dom';
 import useInput from '@hooks/useInput';
-// import axios from 'axios';
+import axios from 'axios';
 
 const SignUp = () => {
   const [email, onChangeEmail] = useInput('');
@@ -32,8 +32,21 @@ const SignUp = () => {
   const onSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!mismatchError) {
+      if (!mismatchError && nickname) {
         console.log('서버로 회원가입');
+        setSignUpError('');
+        setSignUpSuccess(false);
+        axios
+          .post('/api/users', { email, nickname, password })
+          .then((response) => {
+            console.log(response);
+            setSignUpSuccess(true);
+          })
+          .catch((error) => {
+            console.log(error.response);
+            setSignUpError(error.response.data);
+          })
+          .finally(() => {});
       }
     },
     [email, nickname, password, passwordCheck, mismatchError],
