@@ -6,7 +6,7 @@ interface Props {
   onCloseModal: (e: any) => void;
   style: CSSProperties;
   closeButton?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 const Menu: FC<Props> = ({ children, style, show, onCloseModal, closeButton }) => {
   const stopPropagation = useCallback((e: any) => {

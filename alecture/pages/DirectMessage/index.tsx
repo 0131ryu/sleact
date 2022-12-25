@@ -3,9 +3,9 @@ import Workspace from '@layouts/Workspace';
 
 const DirectMessage = () => {
   return (
-    <Workspace>
+    <div>
       <div>DM 페이지</div>
-    </Workspace>
+    </div>
   );
 };
 
